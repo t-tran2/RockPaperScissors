@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <script>  
+            function computerPlay() {
+                let computerChoice = "rock";
+                let rndNum = Math.floor(Math.random() * 3);
+                if (rndNum === 0) {
+                    computerChoice = "paper";
+                } else if (rndNum === 1) {
+                    computerChoice = "scissors";
+                }
+                return computerChoice;
+            }
+            function round(playerSelection, computerSelection) {
+                let lwrCasePlayerSelection = playerSelection.toLowerCase();
+                let result;
+                // Add if there is a tie.
+                if (lwrCasePlayerSelection === "rock" && computerSelection === "scissors" || 
+                    lwrCasePlayerSelection === "paper" && computerSelection === "rock" || 
+                    lwrCasePlayerSelection === "scissors" && computerSelection === "paper") {
+                        result = "You win! " + playerSelection + " beats " + computerSelection;
+                } else {
+                    result = "You lose! " + computerSelection + " beats " + playerSelection;
+                }
+                return result;
+            }
+            console.log(round("paper", computerPlay()));
+        </script>
+    </body>
+</html>
