@@ -3,67 +3,20 @@
     <head>
         <title>Page Title</title>
         <meta charset="UTF-8" />
+        <link rel="stylesheet" href="styles/style.css">
     </head>
     <body>
-        <script>
-            function capitalize(str1) {
-                let lwrCaseStr = str1.toLowerCase();
-                let firstChar = lwrCaseStr.charAt(0);
-                let capitalizedStr = firstChar.toUpperCase() + lwrCaseStr.substr(1);
-                return capitalizedStr;
-            }
-            function computerPlay() {
-                let computerChoice = "rock";
-                let rndNum = Math.floor(Math.random() * 3);
-                if (rndNum === 0) {
-                    computerChoice = "paper";
-                } else if (rndNum === 1) {
-                    computerChoice = "scissors";
-                }
-                return computerChoice;
-            }
-            function playRound(playerSelection, computerSelection) {
-                let lwrCasePlayerSelection = playerSelection.toLowerCase();
-                let result;
-                // Add if there is a tie.
-                if (lwrCasePlayerSelection === "rock" && computerSelection === "scissors" || 
-                    lwrCasePlayerSelection === "paper" && computerSelection === "rock" || 
-                    lwrCasePlayerSelection === "scissors" && computerSelection === "paper") {
-                        result = "You win! " + capitalize(lwrCasePlayerSelection) + " beats " + capitalize(computerSelection);
-                } else if (lwrCasePlayerSelection.localeCompare(computerSelection) === 0) {
-                    result = "Tie! You and the computer chose " + capitalize(lwrCasePlayerSelection);
-                } 
-                else {
-                    result = "You lose! " + capitalize(computerSelection) + " beats " + capitalize(playerSelection);
-                }
-                return result;
-            }
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;
-                let finalResult = "\n";
-                for (i = 0; i < 5; i++) {
-                    console.log("\nRound " + (i + 1))
-                    let playerChoice = prompt("Rock, Paper or Scissors?").toLowerCase();
-                    let roundResult = playRound(playerChoice, computerPlay());
-                    if (roundResult.substr(0, 8).localeCompare("You win!") === 0) {
-                        playerScore++;
-                    } else if (roundResult.substr(0, 9).localeCompare("You lose!") === 0) {
-                        computerScore++;
-                    }
-                    console.log(roundResult);
-                    console.log("Player score: " + playerScore);
-                    console.log("Computer score: " + computerScore);
-                }
-                if (playerScore > computerScore) {
-                    finalResult = finalResult + "Congratulation, you won!";
-                } else {
-                    finalResult = finalResult + "You lost. Better luck next time.\n";
-                }
-                finalResult = finalResult + "\nFinal score: Player - " + playerScore + " Computer - " + computerScore;
-                return finalResult;
-            }
-            console.log(game());
-        </script>
+        <div id="round">Round 1</div>
+        <div id="scoreboard">
+            <p id="player-score" class="score">Player: 0</p>
+            <p id="computer-score" class="score">Computer: 0</p>
+        </div>
+        <div id="buttons">
+            <button type="button" id="rock">Rock</button>
+            <button type="button" id="paper">Paper</button>
+            <button type="button" id="scissor">scissor</button>
+        </div>
+        <div id="winner"></div>
+        <script src="script/gamescript.js"></script>
     </body>
 </html>

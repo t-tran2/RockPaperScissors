@@ -1,0 +1,48 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#round {
+    position:absolute;
+    text-align: center;
+    top: 150px;
+    width: 100%;
+    font-size: 30px;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: center;
+    position:absolute;
+    top: 250px;
+    width: 100%;
+    font-size: 30px;
+}
+
+.score {
+    margin: 0px 40px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    
+}
+
+#winner {
+    position:absolute;
+    text-align: center;
+    bottom: 400px;
+    width: 100%;
+    font-size: 30px;
+    white-space: pre-line;
+}
